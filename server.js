@@ -13,7 +13,8 @@ app.get('/app/', (req, res) => {
 });
 
 app.get('/app/roll/', (req, res) => {
-    res.send(roll(6, 2, 1));
+    var result = roll(6, 2, 1);
+    res.send(result);
 });
 
 app.post('/app/roll/', (req, res) => {
@@ -25,22 +26,22 @@ app.post('/app/roll/', (req, res) => {
 });
 
 app.get('/app/roll/:sides/', (req, res) => {
-    let sides = parseInt(req.param.sides);
+    let sides = parseInt(req.params.sides);
     var result = roll(sides,2,1)
     res.send(result);
 })
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-    let sides = parseInt(req.param.sides);
-    let dice = parseInt(req.param.dice);
+    let sides = parseInt(req.params.sides);
+    let dice = parseInt(req.params.dice);
     var result = roll(sides, dice, 1);
     res.send(result);
 })
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-    let sides = parseInt(req.param.sides);
-    let dice = parseInt(req.param.dice);
-    let rolls = parseInt(req.param.rolls);
+    let sides = parseInt(req.params.sides);
+    let dice = parseInt(req.params.dice);
+    let rolls = parseInt(req.params.rolls);
     var result = roll(sides, dice, rolls);
     res.send(result);
 })
